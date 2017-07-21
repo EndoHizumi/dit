@@ -32,7 +32,7 @@ echo "リモートディレクトリのバックアップを作成しています... %remoteRepo% -> %bac
 pushd %remoteRepo%
 xcopy  /e %remoteRepo%\* %backupDir% 
 popd
-if not %errorlevel% == 0 (
+if not errorlevel 0 (
  echo エラー：バックアップの作成に失敗しました。
  exit /b -1
 )
@@ -40,7 +40,7 @@ if not %errorlevel% == 0 (
 echo "ローカルの内容でリモートと同期します。 %localRepo% -> %remoteRepo%"
 robocopy /MIR /R:10 /W:1 /Z /E %localRepo% %remoteRepo% /XF %ignoreFile%  /XD %ignoreDir%
 echo %errorlevel%
-if not %errorlevel% == 0 (
+if errorlevel 8 (
  echo エラー：同期に失敗しました。
  exit /b -1
 )

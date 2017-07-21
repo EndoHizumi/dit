@@ -9,5 +9,5 @@ pushd %remoteRepo%
 echo åªç›à íu:%cd%
 xcopy  /e %remoteRepo% %localRepo%
 popd
-if errorlevel == 1 exit /b -1
+if errorlevel 1 exit /b -1
 exit /b 0
